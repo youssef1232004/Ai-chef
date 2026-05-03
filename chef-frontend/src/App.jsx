@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import RecipeCard from "./components/RecipeCard";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 const TRANSLATIONS = {
   en: {
     appTitle: "AI Chef",
@@ -117,7 +119,7 @@ export default function App() {
       setInput("");
       clearImageSelection();
 
-      const response = await axios.post("http://localhost:3000/chef/chat", {
+      const response = await axios.post(`${API_URL}/chef/chat`, {
         message: sentText,
         image_base64: base64String,
       });
@@ -145,7 +147,7 @@ export default function App() {
   };
 
   const resetChat = async () => {
-    await axios.post("http://localhost:3000/chef/reset");
+    await axios.post(`${API_URL}/chef/reset`);
     setMessages([
       {
         role: "chef",
