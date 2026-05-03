@@ -47,7 +47,7 @@ export default function RecipeCard({ recipe, lang = "ar" }) {
             {t.ingredients}
           </h4>
           <ul className="space-y-3 text-[15px]">
-            {recipe.ingredients.map((ing, idx) => (
+            {(recipe.ingredients || []).map((ing, idx) => (
               <li key={idx} className="flex items-start gap-3 p-2 rounded-xl hover:bg-gray-700/30 transition-colors">
                 {ing.status.toLowerCase() === 'available' ? (
                   <CheckCircle size={18} className="text-green-400 mt-0.5 flex-shrink-0 drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]"/>
@@ -67,7 +67,7 @@ export default function RecipeCard({ recipe, lang = "ar" }) {
              {t.instructions}
           </h4>
           <ol className="space-y-4 text-[15px] text-gray-200">
-            {recipe.instructions.map((step, idx) => (
+            {(recipe.instructions || []).map((step, idx) => (
               <li key={idx} className="flex gap-4 p-3 rounded-xl hover:bg-gray-700/30 transition-colors group">
                 <span className="bg-gray-700/50 text-accent font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 border border-gray-600 group-hover:scale-110 group-hover:bg-accent group-hover:text-black group-hover:border-accent transition-all">
                   {idx + 1}

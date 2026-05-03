@@ -231,7 +231,7 @@ export default function App() {
                     <p className="text-accent mb-4 font-semibold flex items-center gap-2 text-lg">
                       <ChefHat size={20} /> {t.bonAppetit}
                     </p>
-                    {msg.data.map((recipe, idx) => (
+                    {(Array.isArray(msg.data) ? msg.data : [msg.data]).map((recipe, idx) => (
                       <RecipeCard key={idx} recipe={recipe} lang={lang} />
                     ))}
                   </div>
