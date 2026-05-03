@@ -17,7 +17,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 const TRANSLATIONS = {
   en: {
     appTitle: "AI Chef",
-    welcomeMessage: "Welcome to the kitchen! 👨‍🍳 Tell me what ingredients you have, or upload a picture of your fridge, and let's get cooking!",
+    welcomeMessage: "Welcome to the kitchen!  Tell me what ingredients you have, or upload a picture of your fridge, and let's get cooking!",
     resetBtn: "Reset Kitchen",
     inputPlaceholder: "Type your ingredients or answer the Chef...",
     sendBtn: "Send",
@@ -27,7 +27,7 @@ const TRANSLATIONS = {
   },
   ar: {
     appTitle: "الشيف الذكي",
-    welcomeMessage: "أهلاً بك في المطبخ! 👨‍🍳 أخبرني بالمكونات التي لديك، أو ارفع صورة لثلاجتك، ودعنا نطبخ!",
+    welcomeMessage: "أهلاً بك في المطبخ!  أخبرني بالمكونات التي لديك، أو ارفع صورة لثلاجتك، ودعنا نطبخ!",
     resetBtn: "تفريغ المطبخ",
     inputPlaceholder: "اكتب مكوناتك أو أجب الشيف...",
     sendBtn: "إرسال",
@@ -283,12 +283,18 @@ export default function App() {
             />
           </label>
 
-          <input
-            type="text"
+          <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage(e);
+              }
+            }}
             placeholder={t.inputPlaceholder}
-            className="flex-1 bg-gray-700/50 text-white rounded-xl sm:rounded-2xl px-4 py-3 sm:px-5 sm:py-4 focus:outline-none focus:ring-2 focus:ring-accent focus:bg-gray-700 transition-all border border-transparent focus:border-accent/30 placeholder-gray-400 text-sm sm:text-base h-12 sm:h-14"
+            rows={1}
+            className="flex-1 bg-gray-700/50 text-white rounded-xl sm:rounded-2xl px-4 py-3 sm:px-5 sm:py-4 focus:outline-none focus:ring-2 focus:ring-accent focus:bg-gray-700 transition-all border border-transparent focus:border-accent/30 placeholder-gray-400 text-sm sm:text-base min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-y-auto"
           />
 
           <button

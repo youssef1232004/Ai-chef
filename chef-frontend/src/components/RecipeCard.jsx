@@ -40,9 +40,9 @@ export default function RecipeCard({ recipe, lang = "ar" }) {
         </div>
       </div>
 
-      <div className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="p-4 md:p-6 grid grid-cols-3 gap-4 md:gap-8">
         
-        <div className="md:col-span-1">
+        <div className="col-span-1">
           <h4 className="font-bold text-accent mb-4 flex items-center gap-2 text-lg">
             {t.ingredients}
           </h4>
@@ -62,7 +62,7 @@ export default function RecipeCard({ recipe, lang = "ar" }) {
           </ul>
         </div>
 
-        <div className="md:col-span-2">
+        <div className="col-span-2">
           <h4 className="font-bold text-accent mb-4 flex items-center gap-2 text-lg">
              {t.instructions}
           </h4>
