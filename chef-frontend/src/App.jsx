@@ -162,7 +162,7 @@ export default function App() {
   return (
     <div 
       dir={isRtl ? "rtl" : "ltr"} 
-      className="flex flex-col h-screen bg-gradient-to-br from-gray-900 via-[#1a1c29] to-gray-900 text-gray-100 font-sans selection:bg-accent selection:text-black transition-colors duration-500"
+      className="fixed inset-0 flex flex-col bg-gradient-to-br from-gray-900 via-[#1a1c29] to-gray-900 text-gray-100 font-sans selection:bg-accent selection:text-black transition-colors duration-500"
     >
       <header className="bg-gray-800/80 backdrop-blur-md border-b border-gray-700/50 p-3 md:p-4 flex flex-wrap justify-between items-center shadow-lg sticky top-0 z-10 gap-3">
         <div className="flex items-center gap-2 sm:gap-3">
@@ -287,7 +287,7 @@ export default function App() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter' && !e.shiftKey) {
+              if (e.key === 'Enter' && !e.shiftKey && window.innerWidth >= 640) {
                 e.preventDefault();
                 sendMessage(e);
               }
