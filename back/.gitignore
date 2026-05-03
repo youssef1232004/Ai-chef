@@ -1,0 +1,24 @@
+# Back-end specific ignores
+
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# Logs and runtime files
+logs/
+*.log
+pm2.pid
+
+# Database / data files
+*.sqlite
+/data/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build / coverage
+dist/
+coverage/
